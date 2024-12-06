@@ -7,23 +7,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long user_id;
-    String username;
-    String password;
-    String name;
-    String surname;
-    String personal_email;
-    String university_email;
-    String phone_number;
-    String date_of_birth;
-    String gender;
-    String role;
+    Long project_id;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    User owner_id;
+    String title;
+    String description;
+    String short_description;
+    String status;
+    String date_of_posts;
 }
