@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Projects")
+@Table(name = "Project")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Projects {
+public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment PK
