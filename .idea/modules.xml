@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Quryltai.iml" filepath="$PROJECT_DIR$/.idea/Quryltai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BackEnd/quryltai.iml" filepath="$PROJECT_DIR$/BackEnd/quryltai.iml" />
     </modules>
   </component>
 </project>

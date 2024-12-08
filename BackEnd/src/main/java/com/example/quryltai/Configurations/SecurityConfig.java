@@ -1,3 +1,7 @@
+package com.example.quryltai.Configurations;
+
+import com.example.quryltai.Security.TokenFilter; // Ensure this points to your custom filter
+import com.example.quryltai.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,45 +20,40 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 
-import static jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle.exceptions;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    private TokenFilter tokenFilter;
-    private UserService userService;
 
+    private final TokenFilter tokenFilter;
+    private final UserService userService;
 
-    public SecurityConfig(){}
-
-
-    @Autowired
-    public void setTokenFilter(TokenFilter tokenFilter){
+    // Constructor for Dependency Injection
+    public SecurityConfig(TokenFilter tokenFilter, UserService userService) {
         this.tokenFilter = tokenFilter;
-    }
-
-    @Autowired
-    public void setUserService(UserService userService){
         this.userService = userService;
     }
 
+    // Bean for PasswordEncoder
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    // Bean for AuthenticationManager
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    // Configure AuthenticationManager with UserService and PasswordEncoder
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
 
+    // Define SecurityFilterChain bean
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(httpSecurityCorsConfigurer ->
@@ -68,13 +67,10 @@ public class SecurityConfig {
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/secured/**").authenticated()
                         .anyRequest().permitAll()
-
-                ).addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
-
-
+                )
+                // Add the custom TokenFilter before UsernamePasswordAuthenticationFilter
+                .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
-
-
 }

@@ -1,3 +1,8 @@
+package com.example.quryltai.Services;
+
+import com.example.quryltai.Model.User;
+import com.example.quryltai.Repository.UserRepository;
+import com.example.quryltai.Security.UserDetailsImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -6,13 +11,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserDetailsService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.getUserByLogin(username).orElseThrow(() -> new UsernameNotFoundException(
+        User user = userRepository.getUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException(
                 String.format("User '%s' not found.", username)));
 
         return UserDetailsImpl.build(user);

@@ -1,8 +1,11 @@
+package com.example.quryltai.Security;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import com.example.quryltai.Model.User;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -24,7 +27,7 @@ public class UserDetailsImpl implements UserDetails {
     public static UserDetailsImpl build(User user){
         return new UserDetailsImpl(
                 user.getId(),
-                user.getLogin(),
+                user.getUsername(),
                 user.getPassword());
     }
 
