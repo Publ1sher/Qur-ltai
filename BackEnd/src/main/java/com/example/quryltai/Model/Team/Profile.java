@@ -1,4 +1,4 @@
-package com.example.quryltai.Model.Team;
+package com.example.quryltai.model.team;
 
 import jakarta.persistence.*;
 import lombok.Data;

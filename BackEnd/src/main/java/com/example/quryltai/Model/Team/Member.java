@@ -1,11 +1,10 @@
-package com.example.quryltai.Model.Team;
+package com.example.quryltai.model.team;
 
-import com.example.quryltai.Model.Skill;
-import com.example.quryltai.Model.User;
+import com.example.quryltai.model.Skill;
+import com.example.quryltai.model.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

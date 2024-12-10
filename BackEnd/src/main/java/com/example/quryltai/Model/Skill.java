@@ -1,4 +1,4 @@
-package com.example.quryltai.Model;
+package com.example.quryltai.model;
 
 import jakarta.persistence.*;
 

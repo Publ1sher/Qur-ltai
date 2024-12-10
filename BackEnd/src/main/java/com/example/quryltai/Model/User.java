@@ -1,9 +1,9 @@
-package com.example.quryltai.Model;
+package com.example.quryltai.model;
 
-import com.example.quryltai.Model.Assembly.Application;
-import com.example.quryltai.Model.Assembly.Assembly;
-import com.example.quryltai.Model.Publication.Publication;
-import com.example.quryltai.Model.Team.Team;
+import com.example.quryltai.model.assembly.Application;
+import com.example.quryltai.model.assembly.Assembly;
+import com.example.quryltai.model.publication.Publication;
+import com.example.quryltai.model.team.Team;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;

@@ -1,7 +1,6 @@
-package com.example.quryltai.Model.Publication;
+package com.example.quryltai.model.publication;
 
-import com.example.quryltai.Model.Assembly.Assembly;
-import com.example.quryltai.Model.User;
+import com.example.quryltai.model.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
