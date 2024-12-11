@@ -1,4 +1,4 @@
-package org.example.authonsec;
+package com.example.quryltai.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

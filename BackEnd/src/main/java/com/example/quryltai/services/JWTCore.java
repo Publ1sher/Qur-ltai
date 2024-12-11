@@ -1,4 +1,4 @@
-package org.example.authonsec;
+package com.example.quryltai.services;
 
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

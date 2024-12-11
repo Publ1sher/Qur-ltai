@@ -1,4 +1,4 @@
-package org.example.authonsec;
+package com.example.quryltai.security;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;

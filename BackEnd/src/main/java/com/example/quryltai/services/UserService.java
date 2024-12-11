@@ -1,4 +1,4 @@
-package org.example.authonsec;
+package com.example.quryltai.services;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

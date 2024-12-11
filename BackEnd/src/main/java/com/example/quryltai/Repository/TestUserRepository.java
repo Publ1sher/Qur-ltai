@@ -1,4 +1,4 @@
-package org.example.authonsec;
+package com.example.quryltai.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

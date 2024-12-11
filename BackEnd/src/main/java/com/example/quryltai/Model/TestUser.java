@@ -1,4 +1,4 @@
-package org.example.authonsec;
+package com.example.quryltai.Model;
 
 import jakarta.persistence.*;
 import lombok.Data;
